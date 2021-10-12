@@ -98,3 +98,14 @@
   # run migration files
   $ nest typeorm:run
   ```
+
+## Doc List
+  - NestJS
+    - [Official Doc](https://docs.nestjs.com)
+  - Typeorm
+    - [Model Relationship](https://typeorm.io/#/relations)
+    - [Column Type](https://typeorm.io/#/entities/#Column%20types)
+    - [Querybuilder](https://typeorm.io/#/select-query-builder)
+    - [Decorator Refereneces](https://typeorm.io/#/decorator-reference)
+  - Eslint
+    - [Rules](https://eslint.org/docs/rules/)
