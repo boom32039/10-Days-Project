@@ -90,13 +90,13 @@
   $ nest g res <name>
 
   # automatically create a migration file
-  $ nest typeorm:create-migrate
+  $ yarn typeorm:create-migrate
 
   # create empty migration file
-  $ nest typeorm:create
+  $ yarn typeorm:create
 
   # run migration files
-  $ nest typeorm:run
+  $ yarn typeorm:run
   ```
 
 ## Doc List
