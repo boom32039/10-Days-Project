@@ -6,7 +6,7 @@ const envType = process.env.MODE_ENV || 'development';
 dotenv.config({ path: `.env.${envType}` });
 
 const options: ConnectionOptions = {
-   type: 'mysql',
+   type: 'postgres',
    host: process.env.DATABSE_HOST,
    port: parseInt(process.env.DATABSE_PORT) || 5432,
    database: process.env.DATABASE_NAME,
