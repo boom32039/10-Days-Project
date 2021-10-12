@@ -14,7 +14,7 @@ import config from './config/config';
       TypeOrmModule.forRootAsync({
          imports: [ConfigService],
          useFactory: async (configService: ConfigService) => ({
-            type: 'mysql',
+            type: 'postgres',
             port: configService.get<number>('database.port'),
             username: configService.get<string>('database.username'),
             password: configService.get<string>('database.password'),
