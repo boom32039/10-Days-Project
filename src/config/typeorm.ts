@@ -13,8 +13,8 @@ const options: ConnectionOptions = {
    username: process.env.DATABASE_USERNAME,
    password: process.env.DATABASE_PASSWORD,
    synchronize: false,
-   entities: ['dist/**/*.entity{.ts,.js}'],
-   migrations: ['dist/database/migrations/**/*{.ts,.js}'],
+   entities: ['src/**/entities/*.entity{.ts,.js}'],
+   migrations: ['src/database/migrations/*{.ts,.js}'],
    cli: {
       migrationsDir: 'src/database/migrations',
    },
