@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { ProductModule } from './product/product.module';
 
 import { UserModule } from './user/user.module';
+import { OrderModule } from './order/order.module';
 
 
 import config from './config/config';
@@ -31,6 +32,7 @@ import config from './config/config';
       }),
       ProductModule,
       UserModule,
+      OrderModule,
    ],
    controllers: [AppController],
    providers: [AppService],
