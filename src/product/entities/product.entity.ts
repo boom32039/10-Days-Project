@@ -9,7 +9,8 @@ import {
     PrimaryColumn,
     UpdateDateColumn,
     PrimaryGeneratedColumn,
-    ManyToOne
+    ManyToOne,
+    DeleteDateColumn
 } from 'typeorm';
 
 @Entity({name : 'product'})
@@ -22,6 +23,8 @@ export class Product {
     unit_sold : number;
     @ManyToOne(() => User , user => user.products)
     seller : User;
+    @DeleteDateColumn()
+    deleted_at: string;
     @UpdateDateColumn()
     updated_at: string;
 
