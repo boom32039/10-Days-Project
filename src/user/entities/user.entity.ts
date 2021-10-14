@@ -1,30 +1,28 @@
-import { Product } from 'src/user/entities/user.entity';
+import { Product } from 'src/product/entities/product.entity';
 import {
     Column,
     CreateDateColumn,
-    DeleteDateColumn,
     Entity,
     JoinTable,
     ManyToMany,
     PrimaryColumn,
     UpdateDateColumn,
- } from 'typeorm';
+} from 'typeorm';
 
-@Entity()
+@Entity({name : 'users'})
 export class User {
     @PrimaryColumn()
     id: number;
     @Column()
-    buyer_id : number;
-    seller_id : number;
-    product_id : number;
-    amounts : number;
-    paid_price : number;
-    isPaymentDone : boolean;
+    username : string;
+    name : string;
+    E_mail : string;
+    tel : string;
+    shopname : number;
+    gender : string;
+    birth_date : string;
 
-    @ManyToMany(() => User, user => user.courses)
-    @JoinTable()
-    users: User[];
+    
 
     @UpdateDateColumn()
     updated_at: string;
