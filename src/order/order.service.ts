@@ -15,7 +15,7 @@ export class OrderService {
    async findAll() {
       return await this.orderRepository.find({
          select: ['id', 'amount', 'isPaymentDone', 'paymentDate'],
-         relations: ['product'],
+         relations: ['product','users'],
       });
       // return `This action returns all order`;
    }
@@ -35,7 +35,7 @@ export class OrderService {
       return await this.orderRepository.update(id, updateOrderDto);
    }
 
-   remove(id: number) {
-      return `This action removes a #${id} order`;
+   async remove(id: number) {
+      return await this.orderRepository.softDelete(id);`This action removes a #${id} order`;
    }
 }

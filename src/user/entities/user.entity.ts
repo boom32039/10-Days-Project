@@ -3,6 +3,7 @@ import { Product } from 'src/product/entities/product.entity';
 import {
    Column,
    CreateDateColumn,
+   DeleteDateColumn,
    Entity,
    JoinColumn,
    OneToMany,
@@ -30,15 +31,12 @@ export class User {
    birth_date: string;
 
    @OneToMany(() => Order, order => order.buyer)
-   @JoinColumn()
    buyorders: Order[];
 
    @OneToMany(() => Order, order => order.seller)
-   @JoinColumn()
    sellorders: Order[];
 
    @OneToMany(() => Product, product => product.seller)
-   @JoinColumn()
    products: Product[];
 
    @UpdateDateColumn()
@@ -46,4 +44,7 @@ export class User {
 
    @CreateDateColumn()
    created_at: string;
+
+   //@DeleteDateColumn()
+   //deleted_at: string;
 }
