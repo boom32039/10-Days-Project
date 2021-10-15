@@ -1,37 +1,18 @@
-// user.entities
-import { Course } from 'src/course/entities/course.entity';
-import {
-   Column,
-   CreateDateColumn,
-   DeleteDateColumn,
-   Entity,
-   JoinTable,
-   ManyToMany,
-   PrimaryGeneratedColumn,
-   UpdateDateColumn,
-} from 'typeorm';
+import { Module } from '@nestjs/common';
+import { UserService } from './user.service';
+import { UserController } from './user.controller';
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Order } from 'src/order/entities/order.entity';
+import { User } from './entities/user.entity';
+import { Product } from 'src/product/entities/product.entity';
 
-@Entity({ name: 'users' })
-export class User {
-   @PrimaryGeneratedColumn()
-   id: number;
 
-   @Column()
-   name: string;
+@Module({
+  imports: [TypeOrmModule.forFeature([Order, User, Product])],
+  controllers: [UserController],
+  providers: [UserService]
+})
+export class UserModule {
 
-   @Column({ unique: true })
-   email: string;
-
-   //@ManyToMany(() => Course, course => course.users)
-   //@JoinTable()
-   //courses: Course;
-
-   @DeleteDateColumn()
-   deleted_at: string;
-
-   @UpdateDateColumn()
-   updated_at: string;
-
-   @CreateDateColumn()
-   created_at: string;
 }

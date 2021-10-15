@@ -1,34 +1,50 @@
-import { Product } from 'src/user/entities/user.entity';
+import { Order } from 'src/order/entities/order.entity';
+import { Product } from 'src/product/entities/product.entity';
 import {
-    Column,
-    CreateDateColumn,
-    DeleteDateColumn,
-    Entity,
-    JoinTable,
-    ManyToMany,
-    PrimaryColumn,
-    UpdateDateColumn,
- } from 'typeorm';
+   Column,
+   CreateDateColumn,
+   DeleteDateColumn,
+   Entity,
+   JoinColumn,
+   OneToMany,
+   PrimaryGeneratedColumn,
+   UpdateDateColumn,
+} from 'typeorm';
 
-@Entity()
+@Entity({ name: 'users' })
 export class User {
-    @PrimaryColumn()
-    id: number;
-    @Column()
-    buyer_id : number;
-    seller_id : number;
-    product_id : number;
-    amounts : number;
-    paid_price : number;
-    isPaymentDone : boolean;
+   @PrimaryGeneratedColumn()
+   id: number;
+   @Column()
+   username: string;
+   @Column()
+   name: string;
+   @Column()
+   E_mail: string;
+   @Column()
+   tel: string;
+   @Column()
+   shopname: number;
+   @Column()
+   gender: string;
+   @Column()
+   birth_date: string;
 
-    @ManyToMany(() => User, user => user.courses)
-    @JoinTable()
-    users: User[];
+   @OneToMany(() => Order, order => order.buyer)
+   buyorders: Order[];
 
-    @UpdateDateColumn()
-    updated_at: string;
+   @OneToMany(() => Order, order => order.seller)
+   sellorders: Order[];
 
-    @CreateDateColumn()
-    created_at: string;
+   @OneToMany(() => Product, product => product.seller)
+   products: Product[];
+
+   @UpdateDateColumn()
+   updated_at: string;
+
+   @CreateDateColumn()
+   created_at: string;
+
+   //@DeleteDateColumn()
+   //deleted_at: string;
 }
