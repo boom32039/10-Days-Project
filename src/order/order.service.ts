@@ -15,7 +15,7 @@ export class OrderService {
    async findAll() {
       return await this.orderRepository.find({
          select: ['id', 'amount', 'isPaymentDone', 'paymentDate'],
-         relations: ['product','users'],
+         relations: ['product','buyer','seller'],
       });
       // return `This action returns all order`;
    }
