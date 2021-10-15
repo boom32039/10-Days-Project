@@ -3,9 +3,7 @@ import { Product } from 'src/product/entities/product.entity';
 import {
    Column,
    CreateDateColumn,
-   DeleteDateColumn,
    Entity,
-   JoinColumn,
    OneToMany,
    PrimaryGeneratedColumn,
    UpdateDateColumn,
@@ -24,7 +22,7 @@ export class User {
    @Column()
    tel: string;
    @Column()
-   shopname: number;
+   shopname: string;
    @Column()
    gender: string;
    @Column()
