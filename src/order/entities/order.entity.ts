@@ -1,6 +1,5 @@
-import { User } from 'src/user/entities/user.entity';
 import { Product } from 'src/product/entities/product.entity';
-
+import { User } from 'src/user/entities/user.entity';
 import {
    Column,
    CreateDateColumn,
@@ -12,29 +11,29 @@ import {
    UpdateDateColumn,
 } from 'typeorm';
 
-@Entity({ name: 'orders'})
+@Entity({ name: 'orders' })
 export class Order {
    @PrimaryGeneratedColumn()
    id: number;
 
    @ManyToOne(() => User, user => user.buyorders)
-   buyer : User;
+   buyer: User;
 
    @ManyToOne(() => User, user => user.sellorders)
-   seller : User; 
+   seller: User;
 
    @ManyToOne(() => Product, product => product.orders)
    @JoinColumn()
-   product : Product;
+   product: Product;
 
    @Column()
    amount: number;
 
    @Column()
-   isPaymentDone : boolean;
+   isPaymentDone: boolean;
 
-   @Column()
-   paymentDate : string;
+   @Column({ type: 'timestamp', nullable: true })
+   paymentDate: string;
 
    @DeleteDateColumn()
    deleted_at: string;
