@@ -7,6 +7,7 @@ import { ProductModule } from './product/product.module';
 
 import { UserModule } from './user/user.module';
 import { OrderModule } from './order/order.module';
+import { AuthModule } from './auth/auth.module';
 
 
 import config from './config/config';
@@ -33,6 +34,7 @@ import config from './config/config';
       ProductModule,
       UserModule,
       OrderModule,
+      AuthModule,
    ],
    controllers: [AppController],
    providers: [AppService],

@@ -8,16 +8,20 @@ import { User } from './entities/user.entity';
 @Injectable()
 export class UserService {
   constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) {}
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  
+  async create(createUserDto: CreateUserDto) {
+    const user = this.userRepository.create(createUserDto);
+    await this.userRepository.save(user);
+    return user
   }
 
   async findAll() {
     return await this.userRepository.find({
       select: ['id','name','username','E_mail','birth_date','tel','shopname','gender'],
-      relations: ['buyorders','sellorders','products']
     }); `This action returns all user`;
   }
+
+
 
   async findOne(id: number) {
     let user: User;

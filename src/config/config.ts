@@ -7,6 +7,7 @@ dotenv.config({ path: `.env.${envType}` });
 export default () => ({
    port: parseInt(process.env.PORT) || 3000,
    mode: process.env.MODE_ENV,
+   secret : process.env.SECRET ,
    database: {
       type: process.env.DATABASE_TYPE,
       host: process.env.DATABSE_HOST || 'localhost',
