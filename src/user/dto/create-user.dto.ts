@@ -8,9 +8,11 @@ export class CreateUserDto {
    @IsNotEmpty()
    username: string;
    @IsNotEmpty()
+   password: string;
+   @IsNotEmpty()
    tel: string;
    @IsNotEmpty()
-   shopname: number;
+   shopname: string;
    @IsNotEmpty()
    gender: string;
    @IsNotEmpty()

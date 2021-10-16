@@ -7,6 +7,7 @@ import {
    OneToMany,
    PrimaryGeneratedColumn,
    UpdateDateColumn,
+   DeleteDateColumn,
 } from 'typeorm';
 
 @Entity({ name: 'users' })
@@ -17,17 +18,17 @@ export class User {
    username: string;
    @Column()
    password: string;
-   @Column()
+   @Column({nullable : true})
    name: string;
-   @Column()
+   @Column({nullable : true})
    E_mail: string;
-   @Column()
+   @Column({nullable : true})
    tel: string;
-   @Column()
+   @Column({nullable : true})
    shopname: string;
-   @Column()
+   @Column({nullable : true})
    gender: string;
-   @Column()
+   @Column({nullable : true})
    birth_date: string;
 
    @OneToMany(() => Order, order => order.buyer)

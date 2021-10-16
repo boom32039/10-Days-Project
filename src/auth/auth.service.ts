@@ -15,7 +15,7 @@ export class AuthService {
 
   async register(registerDto : CreateRegisterDto) {
       try{
-        const userData = await this.userRepository.findOne({name : registerDto.name});
+        const userData = await this.userRepository.findOne({name : registerDto.username});
         if (userData){
           return null;
         }
@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   async login(loginDto : LoginDto){
-    const username =  await this.userRepository.findOne({name : loginDto.username});
+    const username =  await this.userRepository.findOne({username : loginDto.username});
     if (!username){
       return null; 
     }

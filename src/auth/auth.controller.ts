@@ -24,15 +24,17 @@ export class AuthController {
 
   @Post('login')
   async login(@Body() loginDto : LoginDto , @Res() res : Response ) {
-    
+    console.log(1);
     const token = await this.authService.login(loginDto);
+    console.log(token);
     if (!token){
-      throw new HttpException('fcking wrong' , HttpStatus.UNPROCESSABLE_ENTITY,);
+      throw new HttpException('fcking wrong' , HttpStatus.UNAUTHORIZED);
     }
     res.cookie("access_token", token, { httpOnly: true, secure: false });
     return res.status(200).send('Login success');
   }
-
+  
+  @UseGuards(JwtAuthGuard)
   @Delete('logout')
   async logout(@Res() res : Response ) {
     res.clearCookie('access_token');
