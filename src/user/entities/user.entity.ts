@@ -39,12 +39,13 @@ export class User {
    @OneToMany(() => Product, product => product.seller)
    products: Product[];
 
+   @DeleteDateColumn()
+   deleted_at: string;
+
    @UpdateDateColumn()
    updated_at: string;
 
    @CreateDateColumn()
    created_at: string;
 
-   //@DeleteDateColumn()
-   //deleted_at: string;
 }
