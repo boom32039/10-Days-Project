@@ -9,7 +9,8 @@ import { Product } from './entities/product.entity';
 export class ProductService {
   constructor(@InjectRepository(Product) private readonly productRepository: Repository<Product>) {}
   create(createProductDto: CreateProductDto) {
-    return 'This action adds a new product';
+     const product = this.productRepository.create(createProductDto)
+      return this.productRepository.save(product)
   }
 
   async findAll() {

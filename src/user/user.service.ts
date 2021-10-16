@@ -9,7 +9,8 @@ import { User } from './entities/user.entity';
 export class UserService {
   constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) {}
   create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+      const user = this.userRepository.create(createUserDto)
+      return this.userRepository.save(user)
   }
 
   async findAll() {
